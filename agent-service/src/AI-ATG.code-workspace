@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../dosm-desk-web"
+		},
+		{
+			"path": "../../../cw-official"
+		}
+	],
+	"settings": {}
+}

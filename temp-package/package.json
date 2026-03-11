@@ -1,0 +1,35 @@
+{
+  "name": "atg-client",
+  "version": "1.0.0",
+  "description": "ATG-Client - AI-ATG客户端测试服务",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "build": "pkg . --targets node18-win-x64,node18-macos-x64,node18-linux-x64 --output dist/atg-client",
+    "install-service": "node src/installer.js install",
+    "uninstall-service": "node src/installer.js uninstall"
+  },
+  "keywords": ["automation", "testing", "selenium"],
+  "author": "AI-ATG",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "selenium-webdriver": "^4.16.0",
+    "node-notifier": "^10.0.1",
+    "node-windows": "^1.0.0-beta.8",
+    "node-mac": "^1.0.0",
+    "systray2": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "assets": [
+      "icons/**/*"
+    ],
+    "outputPath": "dist"
+  }
+}

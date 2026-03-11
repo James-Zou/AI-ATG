@@ -1,0 +1,264 @@
+version: '3.8'
+
+services:
+  # ================================
+  # 基础设施层
+  # ================================
+  
+  # MySQL数据库
+  mysql:
+    image: mysql:8.0
+    container_name: ai-atg-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Aiatg123456
+      MYSQL_DATABASE: ai_atg
+      TZ: Asia/Shanghai
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./docs/database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: 
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --default-authentication-plugin=mysql_native_password
+    networks:
+      - aiatg-network
+
+  # Redis缓存
+  redis:
+    image: redis:7-alpine
+    container_name: ai-atg-redis
+    restart: always
+    command: redis-server --requirepass Aiatg123456
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
+    networks:
+      - aiatg-network
+
+  # MinIO对象存储
+  minio:
+    image: minio/minio:latest
+    container_name: ai-atg-minio
+    restart: always
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: aiatg123456
+    ports:
+      - "9000:9000"   # API端口
+      - "9001:9001"   # 控制台端口
+    volumes:
+      - ./data/minio:/data
+    networks:
+      - aiatg-network
+
+  # Elasticsearch
+  elasticsearch:
+    image: elasticsearch:8.10.0
+    container_name: ai-atg-elasticsearch
+    restart: always
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - ./data/elasticsearch:/usr/share/elasticsearch/data
+    networks:
+      - aiatg-network
+
+  # RabbitMQ
+  rabbitmq:
+    image: rabbitmq:3.12-management-alpine
+    container_name: ai-atg-rabbitmq
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: aiatg123456
+    ports:
+      - "5672:5672"   # AMQP端口
+      - "15672:15672" # 管理界面端口
+    volumes:
+      - ./data/rabbitmq:/var/lib/rabbitmq
+    networks:
+      - aiatg-network
+
+  # ================================
+  # 测试执行层
+  # ================================
+
+  # Selenium Grid Hub
+  selenium-hub:
+    image: selenium/hub:4.15
+    container_name: ai-atg-selenium-hub
+    restart: always
+    ports:
+      - "4444:4444"   # Grid Hub端口
+      - "4442:4442"   # Event Bus发布端口
+      - "4443:4443"   # Event Bus订阅端口
+    networks:
+      - aiatg-network
+
+  # Selenium Chrome Node
+  selenium-chrome:
+    image: selenium/node-chrome:4.15
+    container_name: ai-atg-selenium-chrome
+    restart: always
+    depends_on:
+      - selenium-hub
+    environment:
+      SE_EVENT_BUS_HOST: selenium-hub
+      SE_EVENT_BUS_PUBLISH_PORT: 4442
+      SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+      SE_NODE_MAX_SESSIONS: 3
+      SE_NODE_SESSION_TIMEOUT: 300
+    shm_size: 2gb
+    networks:
+      - aiatg-network
+
+  # Selenium Firefox Node
+  selenium-firefox:
+    image: selenium/node-firefox:4.15
+    container_name: ai-atg-selenium-firefox
+    restart: always
+    depends_on:
+      - selenium-hub
+    environment:
+      SE_EVENT_BUS_HOST: selenium-hub
+      SE_EVENT_BUS_PUBLISH_PORT: 4442
+      SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+      SE_NODE_MAX_SESSIONS: 3
+    shm_size: 2gb
+    networks:
+      - aiatg-network
+
+  # ================================
+  # 后端服务层（构建阶段暂时注释）
+  # ================================
+
+  # API Gateway
+  # gateway:
+  #   build: ./backend/ai-atg-gateway
+  #   container_name: ai-atg-gateway
+  #   restart: always
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - mysql
+  #     - redis
+  #   environment:
+  #     SPRING_PROFILES_ACTIVE: prod
+  #     SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/z_atg?useSSL=false&serverTimezone=Asia/Shanghai
+  #     SPRING_DATASOURCE_USERNAME: root
+  #     SPRING_DATASOURCE_PASSWORD: aiatg123456
+  #     SPRING_REDIS_HOST: redis
+  #     SPRING_REDIS_PASSWORD: aiatg123456
+  #   networks:
+  #     - aiatg-network
+
+  # System Service
+  # system-service:
+  #   build: ./backend/ai-atg-system
+  #   container_name: ai-atg-system
+  #   restart: always
+  #   depends_on:
+  #     - mysql
+  #     - redis
+  #   environment:
+  #     SPRING_PROFILES_ACTIVE: prod
+  #   networks:
+  #     - aiatg-network
+
+  # Requirement Service
+  # requirement-service:
+  #   build: ./backend/ai-atg-requirement
+  #   container_name: ai-atg-requirement
+  #   restart: always
+  #   depends_on:
+  #     - mysql
+  #     - redis
+  #     - rabbitmq
+  #   environment:
+  #     SPRING_PROFILES_ACTIVE: prod
+  #   networks:
+  #     - aiatg-network
+
+  # Test Case Service
+  # testcase-service:
+  #   build: ./backend/ai-atg-testcase
+  #   container_name: ai-atg-testcase
+  #   restart: always
+  #   depends_on:
+  #     - mysql
+  #     - redis
+  #     - rabbitmq
+  #   environment:
+  #     SPRING_PROFILES_ACTIVE: prod
+  #   networks:
+  #     - aiatg-network
+
+  # Execution Service
+  # execution-service:
+  #   build: ./backend/ai-atg-execution
+  #   container_name: ai-atg-execution
+  #   restart: always
+  #   depends_on:
+  #     - mysql
+  #     - redis
+  #     - rabbitmq
+  #     - selenium-hub
+  #   environment:
+  #     SPRING_PROFILES_ACTIVE: prod
+  #     SELENIUM_HUB_URL: http://selenium-hub:4444
+  #   networks:
+  #     - aiatg-network
+
+  # ================================
+  # 前端应用（构建阶段暂时注释）
+  # ================================
+
+  # frontend:
+  #   build: ./frontend
+  #   container_name: ai-atg-frontend
+  #   restart: always
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - gateway
+  #   networks:
+  #     - aiatg-network
+
+  # ================================
+  # 监控和管理（可选）
+  # ================================
+
+  # Portainer（Docker管理界面）
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: ai-atg-portainer
+    restart: always
+    ports:
+      - "9443:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/portainer:/data
+    networks:
+      - aiatg-network
+
+networks:
+  aiatg-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+  redis-data:
+  minio-data:
+  elasticsearch-data:
+  rabbitmq-data:
+  portainer-data:

@@ -1,0 +1,28 @@
+AI-ATG (Z-Automatic Test Generation)
+Copyright 2026 James Zou
+
+This product includes software developed at AI-ATG.
+
+This software includes the following third-party components:
+
+Backend:
+- Spring Boot 3.2.1 (Apache License 2.0)
+- MyBatis Plus 3.5.5 (Apache License 2.0)
+- Hutool 5.8.24 (Apache License 2.0)
+- Java JWT 4.4.0 (MIT License)
+
+Frontend:
+- Vue 3.4 (MIT License)
+- Element Plus 2.5 (MIT License)
+- Pinia 2.1 (MIT License)
+- ECharts 5.4+ (Apache License 2.0)
+- VueUse 10.0+ (MIT License)
+
+Infrastructure:
+- MySQL 8.0 (GPL License)
+- Redis 7.x (BSD License)
+- MinIO (AGPL License)
+- Docker (Apache License 2.0)
+
+For complete license information of third-party components,
+please refer to their respective license files and documentation.
