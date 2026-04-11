@@ -1,309 +1,310 @@
-# AI-ATG Automated Testing Platform
+# AI-ATG 自动化测试平台
 
-**AI-ATG (AI-Automatic Test Generation)** is an intelligent testing platform based on AI, designed to help testing teams automatically generate test cases and execute automated tests.
+**AI-ATG (AI-Automatic Test Generation)** 是一个基于 AI 的智能测试平台，旨在帮助测试团队自动生成测试用例并执行自动化测试。
 
 <div align="center">
 
-![Development Progress](https://img.shields.io/badge/Development%20Progress-100%25-brightgreen)
-![Version](https://img.shields.io/badge/Version-v1.0-blue)
-![Status](https://img.shields.io/badge/Status-Production%20Ready-success)
-![Code](https://img.shields.io/badge/Code-21300+%20Lines-informational)
-![Tech Stack](https://img.shields.io/badge/Technical%20Stack-Spring%20Boot%20%2B%20Vue%203-blue)
-![AI Integration](https://img.shields.io/badge/AI-DeepSeek%20%7C%20Alibaba%20Qwen%20%7C%20Zhipu-orange)
-![Visualization](https://img.shields.io/badge/Visualization-ECharts-red)
+![开发进度](https://img.shields.io/badge/开发进度-100%25-brightgreen)
+![版本](https://img.shields.io/badge/版本-v1.0-blue)
+![状态](https://img.shields.io/badge/状态-Production%20Ready-success)
+![代码](https://img.shields.io/badge/代码-21300+行-informational)
+![技术栈](https://img.shields.io/badge/技术栈-Spring%20Boot%20%2B%20Vue%203-blue)
+![AI集成](https://img.shields.io/badge/AI-DeepSeek%20%7C%20千问%20%7C%20智谱-orange)
+![可视化](https://img.shields.io/badge/可视化-ECharts-red)
 ![CI/CD](https://img.shields.io/badge/CI/CD-GitLab-orange)
-![License](https://img.shields.io/badge/License-Apache%202.0-green)
+![许可证](https://img.shields.io/badge/许可证-Apache%202.0-green)
 
 </div>
 
 ---
 
-## 🎉 All Phases 1-10 Complete! A Complete Intelligent Testing Platform!
+## 🎉 Phase 1-10 全部完成！完整的智能测试平台！
 
-✅ **Phase 1: User and Permission Management**
-- User registration/login, JWT authentication, user management, route guards
+✅ **Phase 1: 用户和权限管理**
+- 用户注册/登录、JWT认证、用户管理、路由守卫
 
-✅ **Phase 2: Requirements Management**
-- Requirements CRUD, file upload (MinIO), search and filtering, status workflow
+✅ **Phase 2: 需求管理**
+- 需求 CRUD、文件上传（MinIO）、搜索筛选、状态流转
 
-✅ **Phase 3: Test Case Management**
-- Test case CRUD, test suites, test steps, batch operations, import/export
+✅ **Phase 3: 测试用例管理**
+- 用例 CRUD、测试套件、测试步骤、批量操作、导入导出
 
-✅ **Phase 4: AI Test Case Generation**
-- AI integration (DeepSeek/Alibaba Qwen/Zhipu), generate cases from requirements, generation history, AI configuration management
+✅ **Phase 4: AI 测试用例生成**
+- AI 集成（DeepSeek/千问/智谱）、从需求生成用例、生成历史、AI 配置管理
 
-✅ **Phase 5: Test Execution**
-- Test execution engine, API/UI executors, asynchronous execution, execution history, log viewing
+✅ **Phase 5: 测试执行**
+- 测试执行引擎、API/UI执行器、异步执行、执行历史、日志查看
 
-✅ **Phase 6: Test Reports**
-- Report generation, data statistics, chart visualization, trend analysis, HTML export
+✅ **Phase 6: 测试报告**
+- 报告生成、数据统计、图表可视化、趋势分析、HTML导出
 
-✅ **Phase 7: GitLab Integration**
-- Webhook reception, signature verification, configuration management, record tracking, code change analysis
+✅ **Phase 7: GitLab 集成**
+- Webhook接收、签名验证、配置管理、记录追踪、代码变更分析
 
-✅ **Phase 8: Project Management**
-- Project CRUD, member management, project statistics, multi-project support
+✅ **Phase 8: 项目管理**
+- 项目CRUD、成员管理、项目统计、多项目支持
 
-✅ **Phase 9: System Management**
-- System configuration, operation logs, parameter management
+✅ **Phase 9: 系统管理**
+- 系统配置、操作日志、参数管理
 
-✅ **Phase 10: Performance Optimization**
-- Database optimization, caching strategy, API documentation, user manual
+✅ **Phase 10: 性能优化**
+- 数据库优化、缓存策略、API文档、用户手册
 
-**👉 [Get Started](QUICK_START.md)** | **🔧 [Installation Guide](INSTALL.md)** | **📖 [User Manual](USER_MANUAL.md)** | **📡 [API Documentation](API_DOCUMENTATION.md)** | **🔄 [Rename Report](FINAL_RENAME_REPORT.md)**
+**👉 [立即开始](QUICK_START.md)** | **🔧 [安装指南](INSTALL.md)** | **📖 [用户手册](USER_MANUAL.md)** | **📡 [API文档](API_DOCUMENTATION.md)** | **🔄 [重命名报告](FINAL_RENAME_REPORT.md)**
 
----
-
-## 📋 Project Overview
-
-This project adopts a frontend-backend separation architecture:
-- **Backend**: Spring Boot 3.x + MySQL + Redis
-- **Frontend**: Vue 3 + Element Plus + Vite
-- **Infrastructure**: Docker Compose one-click deployment
 
 ---
 
-## 🏗️ Project Structure
+## 📋 项目简介
+
+本项目采用前后端分离架构：
+- **后端**：Spring Boot 3.x + MySQL + Redis
+- **前端**：Vue 3 + Element Plus + Vite
+- **基础设施**：Docker Compose 一键部署
+
+---
+
+## 🏗️ 项目结构
 
 ```
 AI-ATG/
-├── backend/                    # Backend service (Spring Boot)
+├── backend/                    # 后端服务（Spring Boot）
 │   ├── src/
 │   │   ├── main/
-│   │   │   ├── java/com/aiatg/ # Java source code
-│   │   │   └── resources/      # Configuration files
-│   │   └── test/               # Test code
-│   └── pom.xml                 # Maven configuration
+│   │   │   ├── java/com/aiatg/ # Java 源码
+│   │   │   └── resources/      # 配置文件
+│   │   └── test/               # 测试代码
+│   └── pom.xml                 # Maven 配置
 │
-├── frontend/                   # Frontend application (Vue 3)
+├── frontend/                   # 前端应用（Vue 3）
 │   ├── src/
-│   │   ├── views/              # Page components
-│   │   ├── api/                # API interfaces
-│   │   ├── stores/             # State management
-│   │   ├── router/             # Route configuration
-│   │   └── main.js             # Entry file
+│   │   ├── views/              # 页面组件
+│   │   ├── api/                # API 接口
+│   │   ├── stores/             # 状态管理
+│   │   ├── router/             # 路由配置
+│   │   └── main.js             # 入口文件
 │   ├── index.html
-│   ├── vite.config.js          # Vite configuration
-│   └── package.json            # npm configuration
+│   ├── vite.config.js          # Vite 配置
+│   └── package.json            # npm 配置
 │
 ├── docs/
 │   └── database/
-│       └── init.sql            # Database initialization script
+│       └── init.sql            # 数据库初始化脚本
 │
-├── docker-compose.yml          # Docker compose configuration
-├── README.md                   # This file
-├── TODO.md                     # Feature development checklist
-├── QUICK_START.md              # Quick start guide
-├── DEVELOPMENT_GUIDE.md        # Development guide
-├── PHASE1_COMPLETION_REPORT.md # Phase 1 completion report
-└── PLATFORM_ARCHITECTURE.md    # Architecture design document
+├── docker-compose.yml          # Docker 编排配置
+├── README.md                   # 本文件
+├── TODO.md                     # 功能开发清单
+├── QUICK_START.md              # 快速启动指南
+├── DEVELOPMENT_GUIDE.md        # 开发指南
+├── PHASE1_COMPLETION_REPORT.md # Phase 1 完成报告
+└── PLATFORM_ARCHITECTURE.md    # 架构设计文档
 ```
 
 ---
 
-## 🚀 Quick Start
+## 🚀 快速开始
 
-### Prerequisites
+### 前置要求
 
 - Docker & Docker Compose
 - JDK 17+
 - Maven 3.8+
 - Node.js 18+
 
-### One-Click Startup (Recommended)
+### 一键启动（推荐）
 
 ```bash
-# 1. Start infrastructure
+# 1. 启动基础设施
 docker-compose up -d mysql redis
 
-# 2. Start backend (new terminal)
+# 2. 启动后端（新终端）
 cd backend && mvn spring-boot:run
 
-# 3. Start frontend (new terminal)
+# 3. 启动前端（新终端）
 cd frontend && npm install && npm run dev
 ```
 
-### Access Application
+### 访问应用
 
-- **Frontend Application**: http://localhost:5173
-- **Backend API**: http://localhost:8080/api
+- **前端应用**: http://localhost:5173
+- **后端API**: http://localhost:8080/api
 
-**For detailed steps please refer to**: [QUICK_START.md](QUICK_START.md)
-
----
-
-## 🎯 Feature Checklist
-
-### ✅ Completed
-
-#### Phase 1: User and Permission Management
-- [x] User registration (form validation, password encryption)
-- [x] User login (JWT Token authentication)
-- [x] User information management (view, update, delete)
-- [x] User list display
-- [x] Route guards (auto-redirect)
-- [x] Permission control (Token verification)
-- [x] Login state persistence
-
-#### Phase 2: Requirements Management
-- [x] Requirements CRUD API
-- [x] Requirements file upload (MinIO integration)
-- [x] Requirements search and filtering
-- [x] Requirements status workflow
-- [x] Requirements list page
-- [x] Requirements create/edit page
-- [x] Requirements details page
-- [x] File upload component
-
-#### Phase 3: Test Case Management
-- [x] Test case CRUD API
-- [x] Test step management
-- [x] Test suite management
-- [x] Test case search and filtering
-- [x] Batch operations
-- [x] Import/export API
-- [x] Test case list page
-- [x] Test case create/edit page
-- [x] Test case details page
-- [x] Suite management page
-
-#### Phase 4: AI Test Case Generation
-- [x] AI client (DeepSeek/Alibaba Qwen/Zhipu)
-- [x] AI configuration management
-- [x] Prompt template management
-- [x] Generate test cases from requirements
-- [x] AI generation history
-- [x] AI generation page
-- [x] AI configuration management page
-
-#### Phase 5: Test Execution
-- [x] Test execution engine
-- [x] API test executor
-- [x] UI test executor interface
-- [x] Asynchronous execution tasks
-- [x] Execution history records
-- [x] Execution list page
-- [x] Execution details and log viewing
-
-#### Phase 6: Test Reports
-- [x] Report generation service
-- [x] Data statistics and aggregation
-- [x] HTML report export
-- [x] Report list and details pages
-- [x] Chart visualization (ECharts)
-- [x] Trend analysis page
-
-#### Phase 7: GitLab Integration
-- [x] GitLab configuration management
-- [x] Webhook reception and verification
-- [x] Code change analysis framework
-- [x] Webhook record retrieval
-- [x] Configuration and record pages
-
-#### Phase 8: Project Management
-- [x] Project CRUD operations
-- [x] Project member management
-- [x] Project statistics information
-- [x] Member role management
-
-#### Phase 9: System Management
-- [x] System configuration management
-- [x] Operation log recording
-- [x] Parameter management
-
-#### Phase 10: Performance Optimization and Enhancement
-- [x] Database index optimization
-- [x] Redis caching strategy
-- [x] Query optimization suggestions
-- [x] Swagger API documentation
-- [x] User usage manual
-- [x] Project documentation enhancement
+**详细步骤请查看**: [QUICK_START.md](QUICK_START.md)
 
 ---
 
-## 🎊 All Features Complete!
+## 🎯 功能清单
 
-**All 10 core modules completed! A complete intelligent testing platform is ready!**
+### ✅ 已完成
+
+#### Phase 1: 用户和权限管理
+- [x] 用户注册（表单验证、密码加密）
+- [x] 用户登录（JWT Token 认证）
+- [x] 用户信息管理（查看、更新、删除）
+- [x] 用户列表展示
+- [x] 路由守卫（自动跳转）
+- [x] 权限控制（Token 验证）
+- [x] 登录状态持久化
+
+#### Phase 2: 需求管理
+- [x] 需求 CRUD 接口
+- [x] 需求文件上传（MinIO集成）
+- [x] 需求搜索和筛选
+- [x] 需求状态流转
+- [x] 需求列表页面
+- [x] 需求创建/编辑页面
+- [x] 需求详情页面
+- [x] 文件上传组件
+
+#### Phase 3: 测试用例管理
+- [x] 测试用例 CRUD 接口
+- [x] 测试步骤管理
+- [x] 测试套件管理
+- [x] 用例搜索和筛选
+- [x] 批量操作
+- [x] 导入导出接口
+- [x] 用例列表页面
+- [x] 用例创建/编辑页面
+- [x] 用例详情页面
+- [x] 套件管理页面
+
+#### Phase 4: AI 测试用例生成
+- [x] AI 客户端（DeepSeek/千问/智谱）
+- [x] AI 配置管理
+- [x] 提示词模板管理
+- [x] 从需求生成测试用例
+- [x] AI 生成历史记录
+- [x] AI 生成页面
+- [x] AI 配置管理页面
+
+#### Phase 5: 测试执行
+- [x] 测试执行引擎
+- [x] API 测试执行器
+- [x] UI 测试执行器接口
+- [x] 异步执行任务
+- [x] 执行历史记录
+- [x] 执行列表页面
+- [x] 执行详情和日志查看
+
+#### Phase 6: 测试报告
+- [x] 报告生成服务
+- [x] 数据统计和聚合
+- [x] HTML报告导出
+- [x] 报告列表和详情页面
+- [x] 图表可视化（ECharts）
+- [x] 趋势分析页面
+
+#### Phase 7: GitLab集成
+- [x] GitLab配置管理
+- [x] Webhook接收和验证
+- [x] 代码变更分析框架
+- [x] Webhook记录查询
+- [x] 配置页面和记录页面
+
+#### Phase 8: 项目管理
+- [x] 项目CRUD操作
+- [x] 项目成员管理
+- [x] 项目统计信息
+- [x] 成员角色管理
+
+#### Phase 9: 系统管理
+- [x] 系统配置管理
+- [x] 操作日志记录
+- [x] 参数管理
+
+#### Phase 10: 性能优化和完善
+- [x] 数据库索引优化
+- [x] Redis缓存策略
+- [x] 查询优化建议
+- [x] Swagger API文档
+- [x] 用户使用手册
+- [x] 项目文档完善
 
 ---
 
-## 📊 Technology Stack
+## 🎊 全部功能已完成！
 
-### Backend
-- **Framework**: Spring Boot 3.2.1
-- **Security**: Spring Security + JWT
-- **Data Access**: MyBatis Plus 3.5.5
-- **Database**: MySQL 8.0
-- **Cache**: Redis 7.x
-- **Tools**: Hutool 5.8.24
+**10大核心模块全部完成！完整的智能测试平台已经就绪！**
 
-### Frontend
-- **Framework**: Vue 3.4
-- **UI Library**: Element Plus 2.5
-- **State Management**: Pinia 2.1
-- **Routing**: Vue Router 4.2
+---
+
+## 📊 技术栈
+
+### 后端
+- **框架**: Spring Boot 3.2.1
+- **安全**: Spring Security + JWT
+- **数据访问**: MyBatis Plus 3.5.5
+- **数据库**: MySQL 8.0
+- **缓存**: Redis 7.x
+- **工具**: Hutool 5.8.24
+
+### 前端
+- **框架**: Vue 3.4
+- **UI库**: Element Plus 2.5
+- **状态管理**: Pinia 2.1
+- **路由**: Vue Router 4.2
 - **HTTP**: Axios 1.6
-- **Build Tool**: Vite 5.0
+- **构建**: Vite 5.0
 
-### Infrastructure
-- **Database**: MySQL 8.0
-- **Cache**: Redis 7.x
-- **Object Storage**: MinIO
-- **Message Queue**: RabbitMQ 3.12
-- **Search Engine**: Elasticsearch 8.10
-- **Test Engine**: Selenium Grid 4.15
-
----
-
-## 📖 Documentation Navigation
-
-| Document | Description | Target Audience |
-|----------|-------------|-----------------|
-| [README.md](README.md) | Project overview | Everyone |
-| [QUICK_START.md](QUICK_START.md) | 5-minute quick start | Beginners |
-| [INSTALL.md](INSTALL.md) | Detailed installation guide | Operations |
-| [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) | Deployment checklist | Operations |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Contributing guide | Contributors |
-| [PROJECT_SUMMARY.md](PROJECT_SUMMARY.md) | Project summary | Everyone |
-| [PLATFORM_ARCHITECTURE.md](PLATFORM_ARCHITECTURE.md) | Architecture design | Architects |
-| [USER_MANUAL.md](USER_MANUAL.md) | User manual | Users |
-| [API_DOCUMENTATION.md](API_DOCUMENTATION.md) | API documentation | Developers |
-| [PERFORMANCE_GUIDE.md](PERFORMANCE_GUIDE.md) | Performance guide | Operations |
-| [CHANGELOG.md](CHANGELOG.md) | Change log | Everyone |
-| [COPYRIGHT.md](COPYRIGHT.md) | Copyright statement | Everyone |
-| [LICENSE](LICENSE) | Open source license | Everyone |
-| [PROJECT_STATS.md](PROJECT_STATS.md) | Project statistics | Project Management |
-| [FINAL_COMPLETION_REPORT.md](FINAL_COMPLETION_REPORT.md) | Final completion report | Project Management |
-| [NOTICE](NOTICE) | Third-party component declaration | Everyone |
-| [LICENSE_HEADER.txt](LICENSE_HEADER.txt) | License header template | Developers |
-| [PROJECT_RENAME_SUMMARY.md](PROJECT_RENAME_SUMMARY.md) | Rename summary | Developers |
-| [FINAL_RENAME_REPORT.md](FINAL_RENAME_REPORT.md) | Rename report | Developers |
-| [docs/database/init.sql](docs/database/init.sql) | Database script | DBA |
+### 基础设施
+- **数据库**: MySQL 8.0
+- **缓存**: Redis 7.x
+- **对象存储**: MinIO
+- **消息队列**: RabbitMQ 3.12
+- **搜索引擎**: Elasticsearch 8.10
+- **测试引擎**: Selenium Grid 4.15
 
 ---
 
-## 🔗 Related Links
+## 📖 文档导航
 
-### Access Addresses
+| 文档 | 说明 | 适用对象 |
+|------|------|---------|
+| [README.md](README.md) | 项目概览 | 所有人 |
+| [QUICK_START.md](QUICK_START.md) | 5分钟快速启动 | 新手 |
+| [INSTALL.md](INSTALL.md) | 详细安装指南 | 运维 |
+| [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) | 部署检查清单 | 运维 |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | 贡献指南 | 贡献者 |
+| [PROJECT_SUMMARY.md](PROJECT_SUMMARY.md) | 项目总结 | 所有人 |
+| [PLATFORM_ARCHITECTURE.md](PLATFORM_ARCHITECTURE.md) | 架构设计 | 架构师 |
+| [USER_MANUAL.md](USER_MANUAL.md) | 用户手册 | 用户 |
+| [API_DOCUMENTATION.md](API_DOCUMENTATION.md) | API文档 | 开发者 |
+| [PERFORMANCE_GUIDE.md](PERFORMANCE_GUIDE.md) | 性能指南 | 运维 |
+| [CHANGELOG.md](CHANGELOG.md) | 更新日志 | 所有人 |
+| [COPYRIGHT.md](COPYRIGHT.md) | 版权说明 | 所有人 |
+| [LICENSE](LICENSE) | 开源许可证 | 所有人 |
+| [PROJECT_STATS.md](PROJECT_STATS.md) | 项目统计 | 项目管理 |
+| [FINAL_COMPLETION_REPORT.md](FINAL_COMPLETION_REPORT.md) | 最终完成报告 | 项目管理 |
+| [NOTICE](NOTICE) | 第三方组件声明 | 所有人 |
+| [LICENSE_HEADER.txt](LICENSE_HEADER.txt) | 许可证头部模板 | 开发者 |
+| [PROJECT_RENAME_SUMMARY.md](PROJECT_RENAME_SUMMARY.md) | 重命名总结 | 开发者 |
+| [FINAL_RENAME_REPORT.md](FINAL_RENAME_REPORT.md) | 重命名报告 | 开发者 |
+| [docs/database/init.sql](docs/database/init.sql) | 数据库脚本 | DBA |
 
-After starting all services, you can access:
+---
 
-- **Frontend Application**: http://localhost:5173
-- **Backend API**: http://localhost:8080/api
+## 🔗 相关链接
+
+### 访问地址
+
+启动所有服务后，可访问：
+
+- **前端应用**: http://localhost:5173
+- **后端API**: http://localhost:8080/api
 - **MySQL**: localhost:3306 (root/Aiatg123456)
-- **Redis**: localhost:6379 (password: Aiatg123456)
+- **Redis**: localhost:6379 (密码: Aiatg123456)
 - **MinIO Console**: http://localhost:9001 (admin/Aiatg123456)
 - **RabbitMQ Management**: http://localhost:15672 (admin/Aiatg123456)
 - **Selenium Grid**: http://localhost:4444
 - **Portainer**: https://localhost:9443
 
-### Database Management
+### 数据库管理
 
 ```bash
-# Enter MySQL container
+# 进入 MySQL 容器
 docker exec -it ai-atg-mysql mysql -uroot -paiatg123456
 
-# View data
+# 查看数据
 USE z_atg;
 SHOW TABLES;
 SELECT * FROM user;
@@ -311,42 +312,42 @@ SELECT * FROM user;
 
 ---
 
-## 🎓 Learning Path
+## 🎓 学习路径
 
-### For Testers
-1. Check [QUICK_START.md](QUICK_START.md) to quickly start the project
-2. Experience user registration and login functionality
-3. Create requirements and use AI to generate test cases
-4. Execute tests and view results
+### 对于测试人员
+1. 查看 [QUICK_START.md](QUICK_START.md) 快速启动项目
+2. 体验用户注册和登录功能
+3. 创建需求并使用AI生成测试用例
+4. 执行测试并查看结果
 
-### For Developers
-1. Read [PLATFORM_ARCHITECTURE.md](PLATFORM_ARCHITECTURE.md) to understand the architecture
-2. Check [DEVELOPMENT_GUIDE.md](DEVELOPMENT_GUIDE.md) to understand development standards
-3. Read Phase completion reports to understand implementation details
-4. Refer to code implementation to extend new features
+### 对于开发人员
+1. 阅读 [PLATFORM_ARCHITECTURE.md](PLATFORM_ARCHITECTURE.md) 了解架构
+2. 查看 [DEVELOPMENT_GUIDE.md](DEVELOPMENT_GUIDE.md) 了解开发规范
+3. 阅读各Phase的完成报告了解实现细节
+4. 参考代码实现扩展新功能
 
-### For Project Managers
-1. Check [PROJECT_SUMMARY.md](PROJECT_SUMMARY.md) to understand the overall project
-2. Read Phase completion reports to understand deliverables
-3. Check [TODO.md](TODO.md) to understand future extension plans
-
----
-
-## 🤝 Contributing
-
-Welcome to submit Issues and Pull Requests!
-
-### Development Standards
-- Code style: Follow existing project style
-- Commit messages: Use semantic commits (feat/fix/docs/style/refactor)
-- Testing: Write tests for new features
-- Documentation: Update related documentation
+### 对于项目管理者
+1. 查看 [PROJECT_SUMMARY.md](PROJECT_SUMMARY.md) 了解项目全貌
+2. 阅读各Phase完成报告了解交付内容
+3. 查看 [TODO.md](TODO.md) 了解后续扩展计划
 
 ---
 
-## 📄 License
+## 🤝 贡献
 
-This project is released under the **Apache License 2.0** open source license.
+欢迎提交 Issue 和 Pull Request！
+
+### 开发规范
+- 代码风格：遵循项目现有风格
+- 提交信息：使用语义化提交（feat/fix/docs/style/refactor）
+- 测试：为新功能编写测试
+- 文档：更新相关文档
+
+---
+
+## 📄 许可证
+
+本项目基于 **Apache License 2.0** 开源许可证发布。
 
 ```
 Copyright 2026 James Zou
@@ -364,32 +365,32 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-For complete license details, please see the [LICENSE](LICENSE) file.
+完整许可证内容请查看 [LICENSE](LICENSE) 文件。
 
-**License Key Points**:
-- ✅ Can freely use, copy, modify and distribute
-- ✅ Can be used for commercial purposes
-- ✅ Must retain copyright and license notices
-- ✅ Software is provided "as is", with no warranty
+**许可证要点**:
+- ✅ 可以自由使用、复制、修改和分发
+- ✅ 可以用于商业用途
+- ✅ 需要保留版权和许可证声明
+- ✅ 提供"按原样"的软件，不提供任何担保
 
 ---
 
-## 📞 Contact Information
+## 📞 联系方式
 
-- **Author**: James Zou
-- **Email**: 18301545237@163.com
-- **Project**: AI-ATG Intelligent Testing Platform
-- **Version**: v1.0
+- **作者**: James Zou
+- **邮箱**: 18301545237@163.com
+- **项目**: AI-ATG 智能测试平台
+- **版本**: v1.0
 
 ---
 
 <div align="center">
 
-**AI-ATG: Making Testing More Intelligent, Making Quality More Reliable**
+**AI-ATG: 让测试更智能，让质量更可靠**
 
 Made with ❤️ by James Zou | 2026
 
-**⭐ If this project helps you, please give it a Star!**
+**⭐ 如果这个项目对你有帮助，请给个 Star！**
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
